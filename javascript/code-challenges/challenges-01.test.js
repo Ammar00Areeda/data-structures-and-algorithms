@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
 'use strict';
 
 /* ------------------------------------------------------------------------------------------------
@@ -11,15 +9,11 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
-  // Solution code here...
-  let newArray = [];
-  arr.array.forEach(value =>{
-    letnewNum = value+1;
-    newArray.push(newNum);
-
+  let tempArray = [];
+  arr.forEach(element => {
+    tempArray.push(element + 1);
   });
-  return newArray;
-
+  return tempArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -30,14 +24,13 @@ Write a function named `addExclamation` that takes an array of strings, and retu
 Use `forEach` to loop over the input array. Modify each string, and add the updated value into a local array. Return the local array;
 ------------------------------------------------------------------------------------------------ */
 
-let newArray = [];
 const addExclamation = (arr) => {
-  // Solution code here...
- 
-   let newString = arr + '!';
-  return newArray.push(newString);
+  let tempArray = [];
+  arr.forEach(element => {
+    tempArray.push(`${element}!`);
+  });
+  return tempArray;
 };
-arr.forEach(addExclamation(arr));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -48,7 +41,11 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
-  // Solution code here...
+  let tempArray = [];
+  arr.forEach(element => {
+    tempArray.push(element.toUpperCase());
+  });
+  return tempArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,27 +53,21 @@ CHALLENGE 4
 
 Write a function named `greeting` that takes in a single string and returns the string in all uppercase letters, and followed by an "!".
 
-Then, write a function named `speaker` that takes in an array of strings and a callback function.
+Then, write a function named `speaker` that takes in an array of strings and a callback function. 
 
-Use `forEach` to build a new array of strings, each string modified by the callback. Return the new array.
+Use `forEach` to build a new array of strings, each string modified by the callback. Return the new array. 
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
-  let newString = word.toUpperCase() + '!';
-  return newString;
-
+  return word.toUpperCase();
 };
 
 const speaker = (words, callback) => {
-  // Solution code here...
-  let newArray = [];
-  words.forEach(val=>{
-    let newStr = callback(val);
-    newArray.push(newStr);
-
+  let tempArray = [];
+  words.forEach(element => {
+    tempArray.push(`${callback(element)}!`);
   });
-  return newArray;
+  return tempArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,12 +87,19 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
-};
+   let tempArray = [];
+  
+  for(let i = 0; i < times; i++){
+    addValues(arr, num);
+  }
+  arr.forEach(element => {
+    tempArray.push(element);
+  });
+  return tempArray
 
 /* ------------------------------------------------------------------------------------------------
 
@@ -122,7 +120,13 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let tempArray = [];
+  availableItems.forEach(element => {
+    if (element.available == true) {
+      tempArray.push(element.name);
+    }
+  });
+  return tempArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
